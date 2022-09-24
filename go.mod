@@ -1,4 +1,4 @@
-module github.com/rlister/gawful
+module github.com/rlister/awsctl
 
 go 1.19
 
