@@ -27,7 +27,7 @@ func init() {
 	getCmd.AddCommand(getRolesCmd)
 }
 
-// getRoles gets role names
+// getRoles gets role details
 func getRoles(substr string) {
 	const format = "%v\t%v\t%v\n"
 	tw := new(tabwriter.Writer).Init(os.Stdout, 0, 8, 2, ' ', 0)
