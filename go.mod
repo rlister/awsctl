@@ -11,6 +11,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.17 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.3.23 // indirect
 	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.22.9 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ecr v1.17.18 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.18.19 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.18.18 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.16 // indirect
