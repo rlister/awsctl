@@ -15,6 +15,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.18.19 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.18.18 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.16 // indirect
+	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.16.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.22 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.13.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.18 // indirect
