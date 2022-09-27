@@ -6,10 +6,10 @@ import (
 
 // describeCmd represents the describe command
 var describeCmd = &cobra.Command{
-	Use:   "describe",
+	Use:     "describe",
 	Aliases: []string{"d"},
-	Short: "Describe role or policy",
-	Long: `Describe given role or policy.`,
+	Short:   "Describe role or policy",
+	Long:    `Describe given role or policy.`,
 }
 
 func init() {
