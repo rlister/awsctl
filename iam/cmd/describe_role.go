@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"bytes"
 	"encoding/json"
+	"github.com/aws/aws-sdk-go-v2/service/iam/types"
 )
 
 // roleCmd represents the role command
@@ -47,7 +48,21 @@ func describeRoleDetails(name *string) {
 
 	fmt.Printf("Arn: %s\n", *output.Role.Arn)
 	fmt.Printf("CreateDate: %s\n", *output.Role.CreateDate)
+	date, region := roleLastUsed(output.Role)
+	fmt.Printf("RoleLastUsed: %s %s\n", date, region)
 	fmt.Printf("AssumeRolePolicyDocument:\n    %s\n", formatJson(output.Role.AssumeRolePolicyDocument))
+}
+
+// takes a Role and returns last used date and region, or strings representing null values
+func roleLastUsed(role *types.Role) (string, string) {
+	date, region := "-", ""
+	if role.RoleLastUsed.LastUsedDate != nil {
+		date = (*role.RoleLastUsed.LastUsedDate).Format(dateFormat)
+	}
+	if role.RoleLastUsed.Region != nil {
+		region = *role.RoleLastUsed.Region
+	}
+	return date, region
 }
 
 // describe inline policies for role
