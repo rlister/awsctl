@@ -40,15 +40,14 @@ func describeRole(name string) {
 
 // describe role details
 func describeRoleDetails(name *string) {
-	r, err := client.GetRole(context.TODO(), &iam.GetRoleInput{RoleName: name})
+	output, err := client.GetRole(context.TODO(), &iam.GetRoleInput{RoleName: name})
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Arn: %s\n", *r.Role.Arn)
-	fmt.Printf("CreateDate: %s\n", *r.Role.CreateDate)
-	fmt.Printf("RoleLastUsed: %s %s\n", *r.Role.RoleLastUsed.LastUsedDate, *r.Role.RoleLastUsed.Region)
-	fmt.Printf("AssumeRolePolicyDocument:\n    %s\n", formatJson(r.Role.AssumeRolePolicyDocument))
+	fmt.Printf("Arn: %s\n", *output.Role.Arn)
+	fmt.Printf("CreateDate: %s\n", *output.Role.CreateDate)
+	fmt.Printf("AssumeRolePolicyDocument:\n    %s\n", formatJson(output.Role.AssumeRolePolicyDocument))
 }
 
 // describe inline policies for role
