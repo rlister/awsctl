@@ -101,7 +101,7 @@ func describeAttachedPolicies(name *string) {
 	}
 
 	for _, p := range r.AttachedPolicies {
-		fmt.Printf("  %s\n", *p.PolicyName)
+		fmt.Printf("  %s\n", *p.PolicyArn)
 	}
 }
 
