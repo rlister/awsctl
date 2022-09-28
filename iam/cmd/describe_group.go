@@ -32,6 +32,7 @@ func init() {
 // describe group and policies it uses
 func describeGroup(name string) {
 	describeGroupDetails(&name)
+	describeGroupAttachedPolicies(&name)
 }
 
 // describe details for iam group
@@ -54,5 +55,19 @@ func describeGroupDetails(name *string) {
 	sort.Strings(names)
 	for _, name := range names {
 		fmt.Printf("  %s\n", name)
+	}
+}
+
+// describe names of attached policies
+func describeGroupAttachedPolicies(name *string) {
+	fmt.Println("Attached policies:")
+
+	output, err := client.ListAttachedGroupPolicies(context.TODO(), &iam.ListAttachedGroupPoliciesInput{GroupName: name})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, p := range output.AttachedPolicies {
+		fmt.Printf("  %s\n", *p.PolicyName)
 	}
 }
