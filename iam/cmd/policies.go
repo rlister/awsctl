@@ -37,3 +37,25 @@ func policies(substr string) []types.Policy {
 	sort.Sort(byPolicyName(policies))
 	return policies
 }
+
+func findPolicyByName(name *string) *string {
+	paginator := iam.NewListPoliciesPaginator(client, &iam.ListPoliciesInput{}, func(*iam.ListPoliciesPaginatorOptions) {})
+
+	arn := ""
+	for paginator.HasMorePages() {
+		output, err := paginator.NextPage(context.TODO())
+		if err != nil {
+			log.Fatal(err)
+		}
+		for _, p := range output.Policies {
+			if *p.PolicyName == *name {
+				arn = *p.Arn
+				break
+			}
+		}
+	}
+	if arn == "" {
+		log.Fatal("policy %s not found", *name)
+	}
+	return &arn
+}
