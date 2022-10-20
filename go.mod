@@ -19,6 +19,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.9.9 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery v1.7.17 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.17 // indirect
+	github.com/aws/aws-sdk-go-v2/service/kms v1.18.11 // indirect
+	github.com/aws/aws-sdk-go-v2/service/rds v1.26.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.16.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.30.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.22 // indirect
@@ -26,11 +28,11 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.18 // indirect
 	github.com/aws/smithy-go v1.13.3 // indirect
 	github.com/fatih/color v1.13.0 // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.1 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
-	github.com/spf13/cobra v1.5.0 // indirect
+	github.com/spf13/cobra v1.6.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 )
