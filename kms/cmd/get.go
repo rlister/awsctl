@@ -53,9 +53,9 @@ func aliasMap() map[string]string {
 
 func getKmsKeys(substr string) {
 	aliases := aliasMap()
-	const format = "%v\t%v\t%v\t%v\n"
+	const format = "%v\t%v\t%v\t%v\t%v\n"
 	tw := new(tabwriter.Writer).Init(os.Stdout, 0, 8, 2, ' ', 0)
-	fmt.Fprintf(tw, format, "ALIAS", "NAME", "ENABLED", "CREATED")
+	fmt.Fprintf(tw, format, "ALIAS", "NAME", "ENABLED", "CREATED", "STATE")
 
 	for _, k := range keys(substr) {
 		output, err := client.DescribeKey(context.TODO(), &kms.DescribeKeyInput{KeyId: k.KeyId})
@@ -70,7 +70,7 @@ func getKmsKeys(substr string) {
 			alias = "-"
 		}
 
-		fmt.Fprintf(tw, format, alias, *d.KeyId, d.Enabled, (*d.CreationDate).Format(dateFormat))
+		fmt.Fprintf(tw, format, alias, *d.KeyId, d.Enabled, (*d.CreationDate).Format(dateFormat), d.KeyState)
 	}
 	tw.Flush()
 }
