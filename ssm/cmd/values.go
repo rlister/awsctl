@@ -25,7 +25,7 @@ var valuesCmd = &cobra.Command{
 	},
 }
 
-// get values for params in path
+// get values for params, either exact match or path
 func getValues(path string) {
 	// path must start with /, so help out user and add if missing
 	if !strings.HasPrefix(path, "/") {
@@ -36,6 +36,13 @@ func getValues(path string) {
 	tw := new(tabwriter.Writer).Init(os.Stdout, 0, 8, 2, ' ', 0)
 	fmt.Fprintf(tw, format, "NAME", "VALUE")
 
+	// find any param that is an exact match
+	p := paramByName(path)
+	if p != nil {
+		fmt.Fprintf(tw, format, *p.Name, *p.Value)
+	}
+
+	// find params with this path prefix
 	for _, p := range paramsByPath(path) {
 		fmt.Fprintf(tw, format, *p.Name, *p.Value)
 	}

@@ -39,3 +39,12 @@ func paramsByPath(path string) []types.Parameter {
 	sort.Sort(byName(params))
 	return params
 }
+
+// return single exact-match Parameter, or nil if not found
+func paramByName(name string) *types.Parameter {
+	output, err := client.GetParameter(context.TODO(), &ssm.GetParameterInput{Name: &name})
+	if err != nil {
+		return nil
+	}
+	return output.Parameter
+}
