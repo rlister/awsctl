@@ -10,7 +10,7 @@ import (
 // vpcsCmd represents the vpcs command
 var getVpcsCmd = &cobra.Command{
 	Use:     "vpcs",
-	Aliases: []string{"v"},
+	Aliases: []string{"vpc", "v"},
 	Short:   "Get ec2 vpcs",
 	Long:    `Get ec2 vpc details.`,
 	Run: func(cmd *cobra.Command, args []string) {
