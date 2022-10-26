@@ -6,6 +6,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/iam"
 	"github.com/spf13/cobra"
 	"log"
+	"os"
+	"text/tabwriter"
 )
 
 // userCmd represents the user command
@@ -34,6 +36,7 @@ func describeUser(name string) {
 	describeUserPolicies(&name)
 	describeUserAttachedPolicies(&name)
 	describeUserGroups(&name)
+	describeUserKeys(&name)
 }
 
 // describe details for iam user
@@ -88,4 +91,27 @@ func describeUserGroups(name *string) {
 	for _, p := range output.Groups {
 		fmt.Printf("  %s\n", *p.GroupName)
 	}
+}
+
+func describeUserKeys(name *string) {
+	fmt.Println("Access keys:")
+
+	output, err := client.ListAccessKeys(context.TODO(), &iam.ListAccessKeysInput{UserName: name})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	const format = "  %v\t%v\t%v\t%v\n"
+	tw := new(tabwriter.Writer).Init(os.Stdout, 0, 8, 2, ' ', 0)
+	fmt.Fprintf(tw, format, "ID", "CREATED", "STATUS", "LAST USED")
+
+	for _, k := range output.AccessKeyMetadata {
+		l, err := client.GetAccessKeyLastUsed(context.TODO(), &iam.GetAccessKeyLastUsedInput{AccessKeyId: k.AccessKeyId})
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Fprintf(tw, format, *k.AccessKeyId, (*k.CreateDate).Format(dateFormat), k.Status, (*l.AccessKeyLastUsed.LastUsedDate).Format(dateFormat))
+	}
+
+	tw.Flush()
 }
