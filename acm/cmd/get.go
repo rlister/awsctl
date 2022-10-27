@@ -35,13 +35,13 @@ func init() {
 }
 
 func getCerts(substr string) {
-	const format = "%v\t%v\t%v\t%v\t%v\n"
+	const format = "%v\t%v\t%v\t%v\t%v\t%v\n"
 	tw := new(tabwriter.Writer).Init(os.Stdout, 0, 8, 2, ' ', 0)
-	fmt.Fprintf(tw, format, "DOMAIN", "ID", "IN USE", "NOT AFTER", "STATUS")
+	fmt.Fprintf(tw, format, "DOMAIN", "ID", "TYPE", "IN USE", "NOT AFTER", "STATUS")
 
 	for _, c := range certs(substr) {
 		id := strings.SplitAfter(*c.CertificateArn, "/")[1]
-		fmt.Fprintf(tw, format, *c.DomainName, id, *c.InUse, notAfter(c), statusColor(string(c.Status)))
+		fmt.Fprintf(tw, format, *c.DomainName, id, c.Type, *c.InUse, notAfter(c), statusColor(string(c.Status)))
 	}
 	tw.Flush()
 }
