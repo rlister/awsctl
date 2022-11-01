@@ -19,21 +19,22 @@ var deleteCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		switch len(args) {
 		case 1:
-			deleteSecret(args[0])
+			force, _ := cmd.Flags().GetBool("force")
+			deleteSecret(args[0], force)
 		default:
 			log.Fatal("wrong number of arguments")
 		}
 	},
 }
 
-func deleteSecret(name string) {
+func deleteSecret(name string, force bool) {
 	input := bufio.NewScanner(os.Stdin)
 
 	fmt.Printf("Delete %s? [y/n] ", name)
 	input.Scan()
 
 	if input.Text() == "y" {
-		output, err := client.DeleteSecret(context.TODO(), &secretsmanager.DeleteSecretInput{SecretId: &name})
+		output, err := client.DeleteSecret(context.TODO(), &secretsmanager.DeleteSecretInput{SecretId: &name, ForceDeleteWithoutRecovery: &force})
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -44,4 +45,5 @@ func deleteSecret(name string) {
 
 func init() {
 	rootCmd.AddCommand(deleteCmd)
+	deleteCmd.Flags().BoolP("force", "f", false, "Force immediate delete")
 }
