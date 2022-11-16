@@ -15,6 +15,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.17.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.61.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ecr v1.17.18 // indirect
+	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.14.21 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.18.19 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.18.18 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.9.9 // indirect
