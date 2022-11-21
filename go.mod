@@ -10,7 +10,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.25 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.19 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.3.23 // indirect
-	github.com/aws/aws-sdk-go-v2/service/acm v1.15.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/acm v1.16.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.22.9 // indirect
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.17.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.61.0 // indirect
@@ -23,6 +23,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.17 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kms v1.18.11 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rds v1.26.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/route53 v1.24.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.16.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.30.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.22 // indirect

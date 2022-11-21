@@ -26,6 +26,8 @@ github.com/aws/aws-sdk-go-v2/internal/ini v1.3.23 h1:Sy266MXyLZZbObFhStGF9dyJm5n
 github.com/aws/aws-sdk-go-v2/internal/ini v1.3.23/go.mod h1:XtEkQMmxls+Tb5dZLmpa1QAk0OzSIFDAXanC9Jkf81E=
 github.com/aws/aws-sdk-go-v2/service/acm v1.15.2 h1:mVVton0wBx+DjcbqhwebiAe5IEIC4vPkXhcVKCWyVIc=
 github.com/aws/aws-sdk-go-v2/service/acm v1.15.2/go.mod h1:LR3qi788mHzUYfv2MNs+xwbvig6QlrPYVOhKv/Ae5M0=
+github.com/aws/aws-sdk-go-v2/service/acm v1.16.2 h1:iY6P2fwGJj+Z6bMxIx99fgXvH7mKDhzDf/ISNsa0Nb0=
+github.com/aws/aws-sdk-go-v2/service/acm v1.16.2/go.mod h1:LR3qi788mHzUYfv2MNs+xwbvig6QlrPYVOhKv/Ae5M0=
 github.com/aws/aws-sdk-go-v2/service/cloudformation v1.22.9 h1:RJMkHM2pwS/oQ+syqa4qWYN4gODmQAmAi9JYYxt5cYQ=
 github.com/aws/aws-sdk-go-v2/service/cloudformation v1.22.9/go.mod h1:T3k87PNi5z7Aus/enP5W8LZgy/oAyFuEGBovJWJ2CSk=
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.17.1 h1:1QpTkQIAaZpR387it1L+erjB5bStGFCJRvmXsodpPEU=
@@ -52,6 +54,8 @@ github.com/aws/aws-sdk-go-v2/service/kms v1.18.11 h1:IxfVvdMedvCHXOWIuypaCjmNqGO
 github.com/aws/aws-sdk-go-v2/service/kms v1.18.11/go.mod h1:DZtboupHLNr0p6qHw9r3kR8MUnN/rc4AAVmNpe2ocuU=
 github.com/aws/aws-sdk-go-v2/service/rds v1.26.1 h1:tiXsw36GaRUWMcH5uRM2uM7vo+bNsa1mEOn68ZOBjWA=
 github.com/aws/aws-sdk-go-v2/service/rds v1.26.1/go.mod h1:d8jJiNpy2cyl52sw5msQQ12ajEbPAK+twYPR7J35slw=
+github.com/aws/aws-sdk-go-v2/service/route53 v1.24.0 h1:ncUXZRu4ns8DWTGQwpMNFZ/wgqBQUtrK8AtjwIYoLZI=
+github.com/aws/aws-sdk-go-v2/service/route53 v1.24.0/go.mod h1:kUSK8EkGYdzFbTmADk0t7yRIoESH80xjWe8Bp6dQce8=
 github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.16.1 h1:eMsEmvJR6zQ1lDi59RDtCc62x9fKs1kv2b8A8nPpWmY=
 github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.16.1/go.mod h1:HEBBc70BYi5eUvxBqC3xXjU/04NO96X/XNUe5qhC7Bc=
 github.com/aws/aws-sdk-go-v2/service/ssm v1.30.0 h1:wDBJM7u0M1JjP+e6un1t8rhxRjM4P97LszEZt/ucQJY=
