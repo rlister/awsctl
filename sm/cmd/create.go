@@ -51,7 +51,7 @@ func editor() string {
 
 // edit data in user EDITOR, and return new string
 func edit(data string) string {
-	f, err := os.CreateTemp("", "awsctl-")
+	f, err := os.CreateTemp("", "awsctl-*.json")
 	if err != nil {
 		log.Fatal(err)
 	}
