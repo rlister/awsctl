@@ -8,6 +8,7 @@ import (
 	"context"
 	"log"
 	"strings"
+	"errors"
 )
 
 // lsZonesCmd represents the zones command
@@ -55,4 +56,29 @@ func zones(substr string) []types.HostedZone {
 		}
 	}
 	return zones
+}
+
+// return hosted zone id for zone with given name
+func findZoneId(name string) (string, error) {
+	// not a domain so probably a zone, just return it
+	if !strings.Contains(name, ".") {
+		return name, nil
+	}
+
+	// aws wants trailing period on name
+	if !strings.HasSuffix(name, ".") {
+		name = name + string(".")
+	}
+
+	output, err := client.ListHostedZonesByName(context.TODO(), &route53.ListHostedZonesByNameInput{DNSName: &name})
+	if err != nil {
+		return "", err
+	}
+
+	for _, z := range output.HostedZones {
+		if *z.Name == name {
+			return *z.Id, nil
+		}
+	}
+	return "", errors.New("zone not found")
 }

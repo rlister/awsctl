@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-// lsZonesCmd represents the zones command
+// lsRecordsCmd represents the zones command
 var lsRecordsCmd = &cobra.Command{
 	Use:   "records ZONE [SUBSTR]",
 	Aliases: []string{"r"},
@@ -32,8 +32,14 @@ func init() {
 	lsCmd.AddCommand(lsRecordsCmd)
 }
 
-// listZones lists host zone names
+// listRecords lists host zone names
 func listRecords(zone, substr string) {
+	zone, err := findZoneId(zone)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	for _, r := range records(zone, substr, "") {
 		fmt.Println(*r.Name)
 	}

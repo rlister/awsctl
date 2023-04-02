@@ -34,6 +34,12 @@ func init() {
 
 // getRecords gets hosted record details
 func getRecords(zone, substr, t string) {
+	zone, err := findZoneId(zone)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	const format = "%v\t%v\t%v\n"
 	tw := new(tabwriter.Writer).Init(os.Stdout, 0, 8, 2, ' ', 0)
 	fmt.Fprintf(tw, format, "NAME", "TYPE", "VALUE/ALIAS")
