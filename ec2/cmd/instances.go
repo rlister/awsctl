@@ -5,7 +5,14 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ec2/types"
 	"log"
+	"sort"
 )
+
+type byInstanceName []types.Instance
+
+func (x byInstanceName) Len() int           { return len(x) }
+func (x byInstanceName) Less(i, j int) bool { return findNameTag(x[i].Tags) < findNameTag(x[j].Tags) }
+func (x byInstanceName) Swap(i, j int)      { x[i], x[j] = x[j], x[i] }
 
 // return sorted slice of Instances for instances matching prefix
 func instances(prefix string) []types.Instance {
@@ -26,6 +33,6 @@ func instances(prefix string) []types.Instance {
 		}
 	}
 
-	// sort.Sort(byInstanceName(stacks))
+	sort.Sort(byInstanceName(instances))
 	return instances
 }
